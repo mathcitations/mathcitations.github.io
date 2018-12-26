@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mathematics citation ranking</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function expand(year){
+            document.getElementById('year'+year).style.display='none';
+            document.getElementById('expandedyear'+year).style.display='block';
+        }
+
+        function collapse(year){
+            document.getElementById('year'+year).style.display='block';
+            document.getElementById('expandedyear'+year).style.display='none';
+        }
+    </script>
+  </head>
+  <body>
+    <nav>
+  
+  <a href="/" >Home</a>
+  
+  <a href="/recent.html" >Recent PhD</a>
+  
+  <a href="/discussion.html" >Discussion</a>
+  
+  <a href="/sources.html" class="current">Sources</a>
+  
+</nav>
+
+    <h1>Where the data comes from</h1>
+    <div class="box">
+<p>The number of citations for each person is taken from <a href="https://mathscinet.ams.org/mathscinet/">MathSciNet</a>. The exact number might be slightly larger right now, since it takes some time to update the site. Note that other sources, like Google Scholar or Research Gate typically give a much higher number of citations. Citations counted on MathSciNet are only from papers already published in mathematical journals.</p>
+<p>The year of graduation is taken from the <a href="https://genealogy.math.ndsu.nodak.edu/">Math Genealogy project</a>. In those cases when we could not find a record in the Math Genealogy project, we used the year of the first publication listed on MathSciNet. This is the case in about 10% of the records, so there are some inaccuracies.</p>
+<p>The area is guessed from the MSC codes of publications listed on MathSciNet. It is rather inexact. Some people are impossible to classify. Terence Tao and Jean Bourgain are listed both in analysis and number theory. Other people are not listed in any subject. We apologize, but we find it very complicated to give a fair classification to everybody. We found the need to attempt to classify people because there is a correlation between area and citations. Otherwise we would rarely see algebraists in our list. We understand the area marked as Geometry/Topology/Dynamical Systems puts together very dissimilar subjects, but it is difficult to differentiate them fairly based on their MSC code only.</p>
+<p>We collected the data purely out of curiosity, and then we decided to share it publicly. This site is not affiliated with the AMS or the Math Genealogy project.</p>
+<p>Please let us know if you find an error. If you have any comments, please write to citationbookkeeper@gmail.com</p>
+</div>
+
+
+  </body>
+</html>
