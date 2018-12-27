@@ -4,16 +4,22 @@
     <meta charset="utf-8">
     <title>Mathematics citation ranking</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115469162-1"></script>
     <script>
-        function expand(year){
-            document.getElementById('year'+year).style.display='none';
-            document.getElementById('expandedyear'+year).style.display='block';
-        }
-
-        function collapse(year){
-            document.getElementById('year'+year).style.display='block';
-            document.getElementById('expandedyear'+year).style.display='none';
-        }
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-115469162-1');
+      
+      function expand(year){
+          document.getElementById('year'+year).style.display='none';
+          document.getElementById('expandedyear'+year).style.display='block';
+      }
+      function collapse(year){
+          document.getElementById('year'+year).style.display='block';
+          document.getElementById('expandedyear'+year).style.display='none';
+      }
     </script>
   </head>
   <body>
