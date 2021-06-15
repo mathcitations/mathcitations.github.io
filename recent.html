@@ -6,6 +6,8 @@
     <meta name="keywords" content="">
     <title>Mathematics citation ranking</title>
     <link rel="stylesheet" href="style.css">
+    <script src="modal.js"> </script>
+    
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115469162-1"></script>
     <script>
@@ -24,7 +26,7 @@
       }
     </script>
   </head>
-  <body>
+  <body onload="start()">
     <nav>
   
   <a href="/" >Home</a>
@@ -37,386 +39,152 @@
   
 </nav>
 
+    <!-- The Modal -->
+    <div id="individualView" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="author-name">John Smith</h2>
+        <p id="hp-view" style="font-size:0.7em;"><a href="" id="hp-link">Homepage</a></p>
+        <p> PhD year: <span id="phd-year" style="font-weight:bold;"></span>.  Area of most publications: <span id="area" style="font-weight:bold;"></span></p>
+        <p> <a id="MSN-link" href="">Mathscinet profile:</a> Citations <span id="msn-citations" style="font-weight:bold;">0</span>, Publications <span id="msn-publications" style="font-weight:bold;">0</span> </p>
+        <p> <a id="Sc-link" href="">Scopus profile:</a> Citations <span id="sc-citations" style="font-weight:bold;">0</span>, Publications <span id="sc-publications" style="font-weight:bold;">0</span></p>
+        <p id="RG-on" display="none"> <a id="RG-link" href="">ReaserchGate profile:</a> Citations <span id="rg-citations" style="font-weight:bold;">0</span>, Publications <span id="rg-publications" style="font-weight:bold;">0</span> </p>
+        <p> <a id="RG-search" display="block" href="">Search ResearchGate</a> </p>
+        <p> <a id="GS-search" display="block" href="">Search Google Scholar</a> </p>
+        <p id="GS-on" display="none"> <a id="GS-link" href="">Google Scholar profile:</a> Citations <span id="gs-citations" style="font-weight:bold;">0</span>.</p>
+        <p id="prizes" display="none"></p>
+    </div>
+    </div>
+
     <h1>Recent PhDs</h1>
     <div class="box">
 <p>A few people have expressed interest to see a ranking of more recent PhD recipients. Most likely, these rankings will vary substantially in a short time. We only include people with more than 100 citations.</p>
 </div>
 
-<div id="year2011">
-<div style="font-weight:bold; font-size:larger;"> Year: <a style="text-decoration:none;" href="javascript:expand('2011')">2011 &#9662;</a></div>
-<div style="background-color:#F0F0FF;">
-<span style="font-weight:bold; background-color:#F2F0B6; margin:10px; border: 1px solid"> Top 5: </span>
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=833613">Corwin, Ivan </a> (1519) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=948182">Borden, Michael J. </a> (1048) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=895075">Zhang, Xiangxiong </a> (956) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=891258">Wichs, Daniel </a> (883) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=902349">Lorz, Alexander </a> (842) ,
-</div>
-<div style="">
-<span style="font-style:italic;"> Number theory: </span>
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=896479">Tsimerman, Jacob </a> (283) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=937884">Lin, Bernard Lishuang </a> (178) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=943491">Dolgy, Dmitry Victorovich </a> (162) ,
-</div>
-<div style="background-color:#F5F5F5;">
-<span style="font-style:italic;"> Algebra: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=943791">Li, Chaoqian </a> (423) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=896756">Elias, Ben </a> (295) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=866599">Angiono, Iván Ezequiel </a> (277) ,
-</div>
-<div style="">
-<span style="font-style:italic;"> Analysis: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=902349">Lorz, Alexander </a> (842) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=914751">Zhou, Kun </a> (588) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=942005">Chen, Zhijie </a> (556) ,
-</div>
-<div style="background-color:#F5F5F5;">
-<span style="font-style:italic;"> Geometry/topology/dynamical systems: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=910857">Mondino, Andrea </a> (579) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=898499">Church, Thomas </a> (515) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=851430">Sapsis, Themistoklis P. </a> (319) ,
-</div>
-<div style="">
-<span style="font-style:italic;"> Applied math: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=948182">Borden, Michael J. </a> (1048) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=895075">Zhang, Xiangxiong </a> (956) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=891258">Wichs, Daniel </a> (883) ,
-</div>
-<div style="background-color:#F5F5F5;">
-<span style="font-style:italic;"> Combinatorics: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=867411">Ilić, Aleksandar </a> (761) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=884519">Treglown, Andrew </a> (307) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=862395">Lidický, Bernard </a> (307) ,
-</div>
-<div style="">
-<span style="font-style:italic;"> Probability: </span>
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=833613">Corwin, Ivan </a> (1519) ,
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=906290">Duminil-Copin, Hugo </a> (720) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=871159">Ding, Jian </a> (568) ,
-</div>
-</div>
-<div id="expandedyear2011" style="display:none; padding:15px; font-size:1.1em; border:2px solid blue;">
-<div style="font-weight:bold; font-size:larger;"> Year: <a style="text-decoration:none;" href="javascript:collapse('2011')">2011 &#9652;</a></div>
-<div style="background-color:#F0F0FF;padding:5px;">
-<span style="font-weight:bold; background-color:#F2F0B6; margin:10px; border: 1px solid"> Top 10: </span>
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=833613">Corwin, Ivan </a> (1519) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=948182">Borden, Michael J. </a> (1048) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=895075">Zhang, Xiangxiong </a> (956) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=891258">Wichs, Daniel </a> (883) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=902349">Lorz, Alexander </a> (842) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=867411">Ilić, Aleksandar </a> (761) ,
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=906290">Duminil-Copin, Hugo </a> (720) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=826033">Ma, Shi-Qian </a> (592) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=914751">Zhou, Kun </a> (588) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=910857">Mondino, Andrea </a> (579) ,
-</div>
-<div style="padding:5px;">
-<span style="font-style:italic;"> Number theory: </span>
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=896479">Tsimerman, Jacob </a> (283) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=937884">Lin, Bernard Lishuang </a> (178) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=943491">Dolgy, Dmitry Victorovich </a> (162) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=937461">Tu, Zi Ran </a> (161) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=993750">Madapusi Pera, Keerthi </a> (140) ,
-</div>
-<div style="background-color:#F5F5F5;padding:5px;">
-<span style="font-style:italic;"> Algebra: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=943791">Li, Chaoqian </a> (423) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=896756">Elias, Ben </a> (295) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=866599">Angiono, Iván Ezequiel </a> (277) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=755044">Shende, Vivek V. </a> (272) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=892211">Plamondon, Pierre-Guy </a> (269) ,
-</div>
-<div style="padding:5px;">
-<span style="font-style:italic;"> Analysis: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=902349">Lorz, Alexander </a> (842) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=914751">Zhou, Kun </a> (588) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=942005">Chen, Zhijie </a> (556) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=908903">Bedrossian, Jacob </a> (500) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=941860">Wachsmuth, Gerd </a> (491) ,
-</div>
-<div style="background-color:#F5F5F5;padding:5px;">
-<span style="font-style:italic;"> Geometry/topology/dynamical systems: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=910857">Mondino, Andrea </a> (579) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=898499">Church, Thomas </a> (515) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=851430">Sapsis, Themistoklis P. </a> (319) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=964293">Barilari, Davide </a> (294) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=944000">Rimoldi, Michele </a> (269) ,
-</div>
-<div style="padding:5px;">
-<span style="font-style:italic;"> Applied math: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=948182">Borden, Michael J. </a> (1048) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=895075">Zhang, Xiangxiong </a> (956) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=891258">Wichs, Daniel </a> (883) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=826033">Ma, Shi-Qian </a> (592) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=877896">Plan, Yaniv </a> (566) ,
-</div>
-<div style="background-color:#F5F5F5;padding:5px;">
-<span style="font-style:italic;"> Combinatorics: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=867411">Ilić, Aleksandar </a> (761) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=884519">Treglown, Andrew </a> (307) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=862395">Lidický, Bernard </a> (307) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=964307">Panova, Greta Cvetanova </a> (250) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=804005">Verret, Gabriel </a> (231) ,
-</div>
-<div style="padding:5px;">
-<span style="font-style:italic;"> Probability: </span>
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=833613">Corwin, Ivan </a> (1519) ,
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=906290">Duminil-Copin, Hugo </a> (720) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=871159">Ding, Jian </a> (568) ,
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=770341">Miller, Jason P. </a> (517) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=923551">Gess, Benjamin </a> (480) ,
-</div>
-</div>
-<hr>
-<div id="year2012">
-<div style="font-weight:bold; font-size:larger;"> Year: <a style="text-decoration:none;" href="javascript:expand('2012')">2012 &#9662;</a></div>
-<div style="background-color:#F0F0FF;">
-<span style="font-weight:bold; background-color:#F2F0B6; margin:10px; border: 1px solid"> Top 5: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1005949">Zhang, Binlin </a> (1530) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=904842">Goodrich, Christopher S. </a> (1273) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=962708">Xiang, Mingqi </a> (1142) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=924411">Dipierro, Serena </a> (943) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=859886">Gibali, Aviv </a> (915) ,
-</div>
-<div style="">
-<span style="font-style:italic;"> Number theory: </span>
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=904689">Thorne, Jack A. </a> (192) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=734852">Dixit, Atul </a> (170) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1005497">Simmons, David Samuel </a> (163) ,
-</div>
-<div style="background-color:#F5F5F5;">
-<span style="font-style:italic;"> Algebra: </span>
-<a style="text-decoration: none; font-weight:bold; color:red;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=890936">Scholze, Peter </a> (556) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=836995">Sam, Steven V. </a> (452) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=999714">He, Zhuo-Heng </a> (248) ,
-</div>
-<div style="">
-<span style="font-style:italic;"> Analysis: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1005949">Zhang, Binlin </a> (1530) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=962708">Xiang, Mingqi </a> (1142) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=924411">Dipierro, Serena </a> (943) ,
-</div>
-<div style="background-color:#F5F5F5;">
-<span style="font-style:italic;"> Geometry/topology/dynamical systems: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=929302">Li, Chi </a> (294) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=922365">Xia, Chao </a> (245) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=857041">Yang, Xiaokui </a> (244) ,
-</div>
-<div style="">
-<span style="font-style:italic;"> Applied math: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=944470">Mu, Lin </a> (845) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=948813">Manzoni, Andrea </a> (762) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=910552">Li, Buyang </a> (710) ,
-</div>
-<div style="background-color:#F5F5F5;">
-<span style="font-style:italic;"> Combinatorics: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=927601">Sun, Yuefang </a> (365) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=861534">Lee, Choongbum </a> (233) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=852247">Kinnersley, William B. </a> (229) ,
-</div>
-<div style="">
-<span style="font-style:italic;"> Probability: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=880329">Wang, Ruodu </a> (340) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=969638">Hofmanová, Martina </a> (281) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=997712">Possamaï, Dylan </a> (260) ,
-</div>
-</div>
-<div id="expandedyear2012" style="display:none; padding:15px; font-size:1.1em; border:2px solid blue;">
-<div style="font-weight:bold; font-size:larger;"> Year: <a style="text-decoration:none;" href="javascript:collapse('2012')">2012 &#9652;</a></div>
-<div style="background-color:#F0F0FF;padding:5px;">
-<span style="font-weight:bold; background-color:#F2F0B6; margin:10px; border: 1px solid"> Top 10: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1005949">Zhang, Binlin </a> (1530) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=904842">Goodrich, Christopher S. </a> (1273) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=962708">Xiang, Mingqi </a> (1142) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=924411">Dipierro, Serena </a> (943) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=859886">Gibali, Aviv </a> (915) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=944470">Mu, Lin </a> (845) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=948813">Manzoni, Andrea </a> (762) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=888481">Sabach, Shoham </a> (762) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=910552">Li, Buyang </a> (710) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=887051">Sintunavarat, Wutiphol </a> (647) ,
-</div>
-<div style="padding:5px;">
-<span style="font-style:italic;"> Number theory: </span>
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=904689">Thorne, Jack A. </a> (192) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=734852">Dixit, Atul </a> (170) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1005497">Simmons, David Samuel </a> (163) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1031958">Shankar, Arul </a> (136) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=906114">Caraiani, Ana </a> (135) ,
-</div>
-<div style="background-color:#F5F5F5;padding:5px;">
-<span style="font-style:italic;"> Algebra: </span>
-<a style="text-decoration: none; font-weight:bold; color:red;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=890936">Scholze, Peter </a> (556) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=836995">Sam, Steven V. </a> (452) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=999714">He, Zhuo-Heng </a> (248) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=859566">Michałek, Mateusz </a> (239) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=842738">Koberda, Thomas </a> (238) ,
-</div>
-<div style="padding:5px;">
-<span style="font-style:italic;"> Analysis: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1005949">Zhang, Binlin </a> (1530) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=962708">Xiang, Mingqi </a> (1142) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=924411">Dipierro, Serena </a> (943) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=859886">Gibali, Aviv </a> (915) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=888481">Sabach, Shoham </a> (762) ,
-</div>
-<div style="background-color:#F5F5F5;padding:5px;">
-<span style="font-style:italic;"> Geometry/topology/dynamical systems: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=929302">Li, Chi </a> (294) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=922365">Xia, Chao </a> (245) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=857041">Yang, Xiaokui </a> (244) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=931234">Bruveris, Martins </a> (239) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=949022">Haslhofer, Robert </a> (192) ,
-</div>
-<div style="padding:5px;">
-<span style="font-style:italic;"> Applied math: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=944470">Mu, Lin </a> (845) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=948813">Manzoni, Andrea </a> (762) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=910552">Li, Buyang </a> (710) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=819002">Cai, YongYong </a> (560) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=910981">Raskutti, Garvesh </a> (456) ,
-</div>
-<div style="background-color:#F5F5F5;padding:5px;">
-<span style="font-style:italic;"> Combinatorics: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=927601">Sun, Yuefang </a> (365) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=861534">Lee, Choongbum </a> (233) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=852247">Kinnersley, William B. </a> (229) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=943873">Dabrowski, Konrad Kazimierz </a> (203) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=975727">Mao, Yaping </a> (197) ,
-</div>
-<div style="padding:5px;">
-<span style="font-style:italic;"> Probability: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=880329">Wang, Ruodu </a> (340) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=969638">Hofmanová, Martina </a> (281) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=997712">Possamaï, Dylan </a> (260) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1008839">Chen, Wei-Kuo </a> (236) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=994560">Tan, Xiaolu </a> (215) ,
-</div>
-</div>
-<hr>
 <div id="year2013">
 <div style="font-weight:bold; font-size:larger;"> Year: <a style="text-decoration:none;" href="javascript:expand('2013')">2013 &#9662;</a></div>
 <div style="background-color:#F0F0FF;">
 <span style="font-weight:bold; background-color:#F2F0B6; margin:10px; border: 1px solid"> Top 5: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=943742">Pilipczuk, Michał </a> (1140) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=761084">Song, Yisheng </a> (1023) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=913316">Dorfler, Florian Anton </a> (755) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1021564">Lankeit, Johannes </a> (665) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1013020">Atangana, Abdon </a> (630) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(943742)">Pilipczuk, Michał </a> (1221)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(761084)">Song, Yisheng </a> (1059)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(913316)">Dorfler, Florian Anton </a> (808)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1013020)">Atangana, Abdon </a> (732)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1021564)">Lankeit, Johannes </a> (732)
 </div>
 <div style="">
 <span style="font-style:italic;"> Number theory: </span>
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=993561">Radziwiłł, Maksym </a> (255) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=949899">Roche-Newton, Oliver </a> (243) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=869041">Steinerberger, Stefan </a> (243) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(869041)">Steinerberger, Stefan </a> (300)
+<a style="text-decoration: none; font-weight:bold; color:green;" href="javascript:open_individual_view(993561)">Radziwiłł, Maksym </a> (297)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(949899)">Roche-Newton, Oliver </a> (259)
 </div>
 <div style="background-color:#F5F5F5;">
 <span style="font-style:italic;"> Algebra: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=898684">Lin, Minghua </a> (426) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=881750">Sisto, Alessandro </a> (271) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1039327">Ding, Weiyang </a> (268) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(898684)">Lin, Minghua </a> (444)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(881750)">Sisto, Alessandro </a> (372)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1039327)">Ding, Weiyang </a> (291)
 </div>
 <div style="">
 <span style="font-style:italic;"> Analysis: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=761084">Song, Yisheng </a> (1023) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1021564">Lankeit, Johannes </a> (665) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1013020">Atangana, Abdon </a> (630) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(761084)">Song, Yisheng </a> (1059)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1013020)">Atangana, Abdon </a> (732)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1021564)">Lankeit, Johannes </a> (732)
 </div>
 <div style="background-color:#F5F5F5;">
 <span style="font-style:italic;"> Geometry/topology/dynamical systems: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=830509">Dyatlov, Semyon </a> (502) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=943911">Angella, Daniele </a> (265) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1011279">Bizyaev, Ivan A. </a> (247) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(830509)">Dyatlov, Semyon </a> (602)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(943911)">Angella, Daniele </a> (322)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1011279)">Bizyaev, Ivan A. </a> (263)
 </div>
 <div style="">
 <span style="font-style:italic;"> Applied math: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=913316">Dorfler, Florian Anton </a> (755) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1017970">Abbaszadeh, Mostafa </a> (599) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1039142">Boscheri, Walter </a> (434) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(913316)">Dorfler, Florian Anton </a> (808)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1017970)">Abbaszadeh, Mostafa </a> (698)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1039142)">Boscheri, Walter </a> (466)
 </div>
 <div style="background-color:#F5F5F5;">
 <span style="font-style:italic;"> Combinatorics: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=867883">Du, Zhibin </a> (353) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=881077">Kupavskii, Andrey B. </a> (219) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=945364">Goedgebeur, Jan </a> (175) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(867883)">Du, Zhibin </a> (362)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(881077)">Kupavskii, Andrey B. </a> (249)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(897983)">Ferber, Asaf </a> (195)
 </div>
 <div style="">
 <span style="font-style:italic;"> Probability: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=999469">Perkowski, Nicolas </a> (357) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=889997">Neeman, Joseph </a> (270) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=997915">Schulte, Matthias </a> (202) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(999469)">Perkowski, Nicolas </a> (403)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(889997)">Neeman, Joseph </a> (328)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(997915)">Schulte, Matthias </a> (224)
 </div>
 </div>
 <div id="expandedyear2013" style="display:none; padding:15px; font-size:1.1em; border:2px solid blue;">
 <div style="font-weight:bold; font-size:larger;"> Year: <a style="text-decoration:none;" href="javascript:collapse('2013')">2013 &#9652;</a></div>
 <div style="background-color:#F0F0FF;padding:5px;">
 <span style="font-weight:bold; background-color:#F2F0B6; margin:10px; border: 1px solid"> Top 10: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=943742">Pilipczuk, Michał </a> (1140) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=761084">Song, Yisheng </a> (1023) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=913316">Dorfler, Florian Anton </a> (755) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1021564">Lankeit, Johannes </a> (665) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1013020">Atangana, Abdon </a> (630) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1017970">Abbaszadeh, Mostafa </a> (599) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=953022">Barrios, Begoña </a> (572) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1005043">Ye, Zhuan </a> (522) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=830509">Dyatlov, Semyon </a> (502) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1019470">Zhang, Wen </a> (498) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(943742)">Pilipczuk, Michał </a> (1221)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(761084)">Song, Yisheng </a> (1059)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(913316)">Dorfler, Florian Anton </a> (808)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1013020)">Atangana, Abdon </a> (732)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1021564)">Lankeit, Johannes </a> (732)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1017970)">Abbaszadeh, Mostafa </a> (698)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(953022)">Barrios, Begoña </a> (618)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(830509)">Dyatlov, Semyon </a> (602)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1005043)">Ye, Zhuan </a> (552)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1019470)">Zhang, Wen </a> (513)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Number theory: </span>
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=993561">Radziwiłł, Maksym </a> (255) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=949899">Roche-Newton, Oliver </a> (243) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=869041">Steinerberger, Stefan </a> (243) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=923990">Rolen, Larry </a> (212) ,
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1007204">Maynard, James Alexander </a> (184) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(869041)">Steinerberger, Stefan </a> (300)
+<a style="text-decoration: none; font-weight:bold; color:green;" href="javascript:open_individual_view(993561)">Radziwiłł, Maksym </a> (297)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(949899)">Roche-Newton, Oliver </a> (259)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(923990)">Rolen, Larry </a> (232)
+<a style="text-decoration: none; font-weight:bold; color:green;" href="javascript:open_individual_view(1007204)">Maynard, James Alexander </a> (209)
 </div>
 <div style="background-color:#F5F5F5;padding:5px;">
 <span style="font-style:italic;"> Algebra: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=898684">Lin, Minghua </a> (426) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=881750">Sisto, Alessandro </a> (271) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1039327">Ding, Weiyang </a> (268) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=818035">Pixton, Aaron </a> (233) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=871016">Marberg, Eric </a> (198) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(898684)">Lin, Minghua </a> (444)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(881750)">Sisto, Alessandro </a> (372)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1039327)">Ding, Weiyang </a> (291)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(818035)">Pixton, Aaron </a> (279)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(871016)">Marberg, Eric </a> (228)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Analysis: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=761084">Song, Yisheng </a> (1023) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1021564">Lankeit, Johannes </a> (665) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1013020">Atangana, Abdon </a> (630) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=953022">Barrios, Begoña </a> (572) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1005043">Ye, Zhuan </a> (522) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(761084)">Song, Yisheng </a> (1059)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1013020)">Atangana, Abdon </a> (732)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1021564)">Lankeit, Johannes </a> (732)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(953022)">Barrios, Begoña </a> (618)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1005043)">Ye, Zhuan </a> (552)
 </div>
 <div style="background-color:#F5F5F5;padding:5px;">
 <span style="font-style:italic;"> Geometry/topology/dynamical systems: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=830509">Dyatlov, Semyon </a> (502) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=943911">Angella, Daniele </a> (265) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1011279">Bizyaev, Ivan A. </a> (247) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=838351">Gu, Anhui </a> (234) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=969921">Chen, Qiang </a> (194) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(830509)">Dyatlov, Semyon </a> (602)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(943911)">Angella, Daniele </a> (322)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1011279)">Bizyaev, Ivan A. </a> (263)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(838351)">Gu, Anhui </a> (251)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1009081)">Lu, Chinh H. </a> (224)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Applied math: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=913316">Dorfler, Florian Anton </a> (755) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1017970">Abbaszadeh, Mostafa </a> (599) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1039142">Boscheri, Walter </a> (434) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1012387">Voroninski, Vladislav </a> (411) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1059353">Lepoint, Tancrède </a> (379) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(913316)">Dorfler, Florian Anton </a> (808)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1017970)">Abbaszadeh, Mostafa </a> (698)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1039142)">Boscheri, Walter </a> (466)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1012387)">Voroninski, Vladislav </a> (437)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(910679)">Tamo, Itzhak </a> (409)
 </div>
 <div style="background-color:#F5F5F5;padding:5px;">
 <span style="font-style:italic;"> Combinatorics: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=867883">Du, Zhibin </a> (353) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=881077">Kupavskii, Andrey B. </a> (219) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=945364">Goedgebeur, Jan </a> (175) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=897983">Ferber, Asaf </a> (168) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=884033">Pokrovskiy, Alexey </a> (140) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(867883)">Du, Zhibin </a> (362)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(881077)">Kupavskii, Andrey B. </a> (249)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(897983)">Ferber, Asaf </a> (195)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(945364)">Goedgebeur, Jan </a> (194)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(884033)">Pokrovskiy, Alexey </a> (184)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Probability: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=999469">Perkowski, Nicolas </a> (357) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=889997">Neeman, Joseph </a> (270) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=997915">Schulte, Matthias </a> (202) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1030711">Hanson, Jack Thomas </a> (144) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=948735">Kelly, David T. B. </a> (141) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(999469)">Perkowski, Nicolas </a> (403)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(889997)">Neeman, Joseph </a> (328)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(997915)">Schulte, Matthias </a> (224)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1030711)">Hanson, Jack Thomas </a> (160)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(948735)">Kelly, David T. B. </a> (153)
 </div>
 </div>
 <hr>
@@ -424,122 +192,123 @@
 <div style="font-weight:bold; font-size:larger;"> Year: <a style="text-decoration:none;" href="javascript:expand('2014')">2014 &#9662;</a></div>
 <div style="background-color:#F0F0FF;">
 <span style="font-weight:bold; background-color:#F2F0B6; margin:10px; border: 1px solid"> Top 5: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=920237">Ros-Oton, Xavier </a> (1044) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=983074">Serra, Joaquim </a> (853) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1021979">Fiscella, Alessio </a> (739) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=921397">Zeng, Fanhai </a> (708) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=796424">Lam, Nguyen </a> (702) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(983982)">Di Nezza, Eleonora </a> (1570)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(920237)">Ros-Oton, Xavier </a> (1143)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(983074)">Serra, Joaquim </a> (935)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1021979)">Fiscella, Alessio </a> (797)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(921397)">Zeng, Fanhai </a> (754)
 </div>
 <div style="">
 <span style="font-style:italic;"> Number theory: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=914866">Rassias, Michael Th. </a> (314) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=959715">Merca, Mircea </a> (243) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=907123">Bravo G., Jhon Jairo </a> (182) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(914866)">Rassias, Michael Th. </a> (333)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(959715)">Merca, Mircea </a> (271)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(907123)">Bravo G., Jhon Jairo </a> (190)
 </div>
 <div style="background-color:#F5F5F5;">
 <span style="font-style:italic;"> Algebra: </span>
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=974745">Huh, June </a> (203) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=994262">Spitz, Loek </a> (158) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1057994">Adachi, Takahide </a> (148) ,
+<a style="text-decoration: none; font-weight:bold; color:green;" href="javascript:open_individual_view(974745)">Huh, June </a> (230)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1041820)">Psaroudakis, Chrysostomos </a> (163)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(994262)">Spitz, Loek </a> (163)
 </div>
 <div style="">
 <span style="font-style:italic;"> Analysis: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=920237">Ros-Oton, Xavier </a> (1044) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=983074">Serra, Joaquim </a> (853) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1021979">Fiscella, Alessio </a> (739) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(920237)">Ros-Oton, Xavier </a> (1143)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(983074)">Serra, Joaquim </a> (935)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1021979)">Fiscella, Alessio </a> (797)
 </div>
 <div style="background-color:#F5F5F5;">
 <span style="font-style:italic;"> Geometry/topology/dynamical systems: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=880557">Zhu, Guangxian </a> (364) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1034188">Montalto, Riccardo </a> (290) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=839125">Wright, Alex </a> (274) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(983982)">Di Nezza, Eleonora </a> (1570)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(880557)">Zhu, Guangxian </a> (385)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1034188)">Montalto, Riccardo </a> (353)
 </div>
 <div style="">
 <span style="font-style:italic;"> Applied math: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=921397">Zeng, Fanhai </a> (708) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1028007">Zayernouri, Mohsen </a> (528) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1011495">Townsend, Alex </a> (359) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(921397)">Zeng, Fanhai </a> (754)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1028007)">Zayernouri, Mohsen </a> (551)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1011495)">Townsend, Alex </a> (421)
 </div>
 <div style="background-color:#F5F5F5;">
 <span style="font-style:italic;"> Combinatorics: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1042971">Lai, Tri </a> (119) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1075489">Wang, Liuquan </a> (106) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=967225">Liu, Chun-Hung </a> (105) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1042971)">Lai, Tri </a> (137)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1075489)">Wang, Liuquan </a> (116)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(967225)">Liu, Chun-Hung </a> (112)
 </div>
 <div style="">
 <span style="font-style:italic;"> Probability: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=890491">Ji, Lanpeng </a> (212) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1043548">Tassion, Vincent </a> (189) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=957533">Sun, Nike </a> (183) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(890491)">Ji, Lanpeng </a> (223)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1043548)">Tassion, Vincent </a> (217)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(957533)">Sun, Nike </a> (200)
 </div>
 </div>
 <div id="expandedyear2014" style="display:none; padding:15px; font-size:1.1em; border:2px solid blue;">
 <div style="font-weight:bold; font-size:larger;"> Year: <a style="text-decoration:none;" href="javascript:collapse('2014')">2014 &#9652;</a></div>
 <div style="background-color:#F0F0FF;padding:5px;">
 <span style="font-weight:bold; background-color:#F2F0B6; margin:10px; border: 1px solid"> Top 10: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=920237">Ros-Oton, Xavier </a> (1044) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=983074">Serra, Joaquim </a> (853) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1021979">Fiscella, Alessio </a> (739) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=921397">Zeng, Fanhai </a> (708) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=796424">Lam, Nguyen </a> (702) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=976151">Sánchez, Urko </a> (528) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1028007">Zayernouri, Mohsen </a> (528) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=859713">Otárola, Enrique </a> (407) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=880557">Zhu, Guangxian </a> (364) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1011495">Townsend, Alex </a> (359) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(983982)">Di Nezza, Eleonora </a> (1570)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(920237)">Ros-Oton, Xavier </a> (1143)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(983074)">Serra, Joaquim </a> (935)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1021979)">Fiscella, Alessio </a> (797)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(921397)">Zeng, Fanhai </a> (754)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(796424)">Lam, Nguyen </a> (752)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1028007)">Zayernouri, Mohsen </a> (551)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(976151)">Sánchez, Urko </a> (545)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(859713)">Otárola, Enrique </a> (441)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1011495)">Townsend, Alex </a> (421)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Number theory: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=914866">Rassias, Michael Th. </a> (314) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=959715">Merca, Mircea </a> (243) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=907123">Bravo G., Jhon Jairo </a> (182) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1001612">Baker, Simon Peter </a> (123) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(914866)">Rassias, Michael Th. </a> (333)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(959715)">Merca, Mircea </a> (271)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(907123)">Bravo G., Jhon Jairo </a> (190)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1001612)">Baker, Simon Peter </a> (136)
 </div>
 <div style="background-color:#F5F5F5;padding:5px;">
 <span style="font-style:italic;"> Algebra: </span>
-<a style="text-decoration: none; font-weight:bold; color:green;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=974745">Huh, June </a> (203) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=994262">Spitz, Loek </a> (158) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1057994">Adachi, Takahide </a> (148) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1094020">Hoyois, Marc </a> (135) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=967028">Saeedi Madani, Sara </a> (125) ,
+<a style="text-decoration: none; font-weight:bold; color:green;" href="javascript:open_individual_view(974745)">Huh, June </a> (230)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1041820)">Psaroudakis, Chrysostomos </a> (163)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(994262)">Spitz, Loek </a> (163)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1094020)">Hoyois, Marc </a> (161)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1057994)">Adachi, Takahide </a> (160)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Analysis: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=920237">Ros-Oton, Xavier </a> (1044) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=983074">Serra, Joaquim </a> (853) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1021979">Fiscella, Alessio </a> (739) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=796424">Lam, Nguyen </a> (702) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=976151">Sánchez, Urko </a> (528) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(920237)">Ros-Oton, Xavier </a> (1143)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(983074)">Serra, Joaquim </a> (935)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1021979)">Fiscella, Alessio </a> (797)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(796424)">Lam, Nguyen </a> (752)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(976151)">Sánchez, Urko </a> (545)
 </div>
 <div style="background-color:#F5F5F5;padding:5px;">
 <span style="font-style:italic;"> Geometry/topology/dynamical systems: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=880557">Zhu, Guangxian </a> (364) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1034188">Montalto, Riccardo </a> (290) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=839125">Wright, Alex </a> (274) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1016588">Darvas, Tamás </a> (220) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1036099">Wei, Yong </a> (204) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(983982)">Di Nezza, Eleonora </a> (1570)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(880557)">Zhu, Guangxian </a> (385)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1034188)">Montalto, Riccardo </a> (353)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(839125)">Wright, Alex </a> (290)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1016588)">Darvas, Tamás </a> (284)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Applied math: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=921397">Zeng, Fanhai </a> (708) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1028007">Zayernouri, Mohsen </a> (528) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1011495">Townsend, Alex </a> (359) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1048471">Winters, Andrew R. </a> (316) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=875642">Zhang, Zhongqiang </a> (302) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(921397)">Zeng, Fanhai </a> (754)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1028007)">Zayernouri, Mohsen </a> (551)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1011495)">Townsend, Alex </a> (421)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1048471)">Winters, Andrew R. </a> (381)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(900382)">Xu, Yangyang </a> (363)
 </div>
 <div style="background-color:#F5F5F5;padding:5px;">
 <span style="font-style:italic;"> Combinatorics: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1042971">Lai, Tri </a> (119) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1075489">Wang, Liuquan </a> (106) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=967225">Liu, Chun-Hung </a> (105) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1042971)">Lai, Tri </a> (137)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1075489)">Wang, Liuquan </a> (116)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(967225)">Liu, Chun-Hung </a> (112)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(952897)">Volec, Jan </a> (101)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Probability: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=890491">Ji, Lanpeng </a> (212) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1043548">Tassion, Vincent </a> (189) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=957533">Sun, Nike </a> (183) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1065236">Lawley, Sean D. </a> (152) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=979950">Trevisan, Dario </a> (142) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(890491)">Ji, Lanpeng </a> (223)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1043548)">Tassion, Vincent </a> (217)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(957533)">Sun, Nike </a> (200)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1065236)">Lawley, Sean D. </a> (180)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1074956)">Krüger, Torben </a> (180)
 </div>
 </div>
 <hr>
@@ -547,112 +316,120 @@
 <div style="font-weight:bold; font-size:larger;"> Year: <a style="text-decoration:none;" href="javascript:expand('2015')">2015 &#9662;</a></div>
 <div style="background-color:#F0F0FF;">
 <span style="font-weight:bold; background-color:#F2F0B6; margin:10px; border: 1px solid"> Top 5: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=963884">Colombo, Maria </a> (870) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1011798">Zhou, Zhi </a> (785) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1139653">Zhao, Jia </a> (575) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=941164">Bitansky, Nir </a> (452) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1045185">Gorbunov, Sergey </a> (427) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(963884)">Colombo, Maria </a> (975)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1011798)">Zhou, Zhi </a> (858)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1139653)">Zhao, Jia </a> (639)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(963853)">Bandeira, Afonso S. </a> (483)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(941164)">Bitansky, Nir </a> (479)
 </div>
 <div style="">
 <span style="font-style:italic;"> Number theory: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=943260">Griffin, Michael John </a> (115) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1114704">Liu, Ji-Cai </a> (105) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1114704)">Liu, Ji-Cai </a> (137)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(943260)">Griffin, Michael John </a> (122)
 </div>
 <div style="background-color:#F5F5F5;">
 <span style="font-style:italic;"> Algebra: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=866290">Neguţ, Andrei </a> (203) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=877578">Dunin-Barkowski, Petr </a> (183) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1084827">Scrimshaw, Travis </a> (105) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(866290)">Neguţ, Andrei </a> (246)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(877578)">Dunin-Barkowski, Petr </a> (194)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1084827)">Scrimshaw, Travis </a> (119)
 </div>
 <div style="">
 <span style="font-style:italic;"> Analysis: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=963884">Colombo, Maria </a> (870) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=946733">Liang, Yiyu </a> (368) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1097540">Yan, Jinhui </a> (338) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(963884)">Colombo, Maria </a> (975)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(946733)">Liang, Yiyu </a> (396)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1097540)">Yan, Jinhui </a> (377)
 </div>
 <div style="background-color:#F5F5F5;">
 <span style="font-style:italic;"> Geometry/topology/dynamical systems: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=973224">Chodosh, Otis </a> (119) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=903824">Bettiol, Renato G. </a> (105) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(973224)">Chodosh, Otis </a> (141)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(903824)">Bettiol, Renato G. </a> (119)
+<a style="text-decoration: none; font-weight:bold; color:green;" href="javascript:open_individual_view(857067)">Pardon, John </a> (118)
 </div>
 <div style="">
 <span style="font-style:italic;"> Applied math: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1011798">Zhou, Zhi </a> (785) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1139653">Zhao, Jia </a> (575) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=941164">Bitansky, Nir </a> (452) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1011798)">Zhou, Zhi </a> (858)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1139653)">Zhao, Jia </a> (639)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(963853)">Bandeira, Afonso S. </a> (483)
 </div>
 <div style="background-color:#F5F5F5;">
 <span style="font-style:italic;"> Combinatorics: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=840121">Liu, Xiao Gang </a> (248) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1014923">Košmrlj, Gašper </a> (200) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1022010">Ning, Bo </a> (138) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(840121)">Liu, Xiao Gang </a> (259)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1014923)">Košmrlj, Gašper </a> (202)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(895688)">Han, Jie </a> (163)
 </div>
 <div style="">
 <span style="font-style:italic;"> Probability: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1096655">Jaisson, Thibault </a> (132) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=848187">Kuan, Jeffrey </a> (111) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1096655)">Jaisson, Thibault </a> (159)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1137761)">Huang, Jiaoyang </a> (123)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(848187)">Kuan, Jeffrey </a> (123)
 </div>
 </div>
 <div id="expandedyear2015" style="display:none; padding:15px; font-size:1.1em; border:2px solid blue;">
 <div style="font-weight:bold; font-size:larger;"> Year: <a style="text-decoration:none;" href="javascript:collapse('2015')">2015 &#9652;</a></div>
 <div style="background-color:#F0F0FF;padding:5px;">
 <span style="font-weight:bold; background-color:#F2F0B6; margin:10px; border: 1px solid"> Top 10: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=963884">Colombo, Maria </a> (870) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1011798">Zhou, Zhi </a> (785) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1139653">Zhao, Jia </a> (575) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=941164">Bitansky, Nir </a> (452) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1045185">Gorbunov, Sergey </a> (427) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=963853">Bandeira, Afonso S. </a> (426) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=965785">Feischl, Michael </a> (419) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=946733">Liang, Yiyu </a> (368) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=894304">Soleymani, Fazlollah </a> (359) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1097540">Yan, Jinhui </a> (338) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(963884)">Colombo, Maria </a> (975)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1011798)">Zhou, Zhi </a> (858)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1139653)">Zhao, Jia </a> (639)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(963853)">Bandeira, Afonso S. </a> (483)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(941164)">Bitansky, Nir </a> (479)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(965785)">Feischl, Michael </a> (453)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1045185)">Gorbunov, Sergey </a> (439)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(946733)">Liang, Yiyu </a> (396)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(894304)">Soleymani, Fazlollah </a> (378)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1097540)">Yan, Jinhui </a> (377)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Number theory: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=943260">Griffin, Michael John </a> (115) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1114704">Liu, Ji-Cai </a> (105) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1114704)">Liu, Ji-Cai </a> (137)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(943260)">Griffin, Michael John </a> (122)
 </div>
 <div style="background-color:#F5F5F5;padding:5px;">
 <span style="font-style:italic;"> Algebra: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=866290">Neguţ, Andrei </a> (203) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=877578">Dunin-Barkowski, Petr </a> (183) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1084827">Scrimshaw, Travis </a> (105) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=919850">Špenko, Špela </a> (104) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(866290)">Neguţ, Andrei </a> (246)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(877578)">Dunin-Barkowski, Petr </a> (194)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1084827)">Scrimshaw, Travis </a> (119)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(919850)">Špenko, Špela </a> (115)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1034185)">Margolis, Leo </a> (113)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Analysis: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=963884">Colombo, Maria </a> (870) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=946733">Liang, Yiyu </a> (368) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1097540">Yan, Jinhui </a> (338) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1013888">Ok, Jihoon </a> (305) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1095436">Lin, Ke </a> (241) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(963884)">Colombo, Maria </a> (975)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(946733)">Liang, Yiyu </a> (396)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1097540)">Yan, Jinhui </a> (377)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1013888)">Ok, Jihoon </a> (325)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1095436)">Lin, Ke </a> (266)
 </div>
 <div style="background-color:#F5F5F5;padding:5px;">
 <span style="font-style:italic;"> Geometry/topology/dynamical systems: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=973224">Chodosh, Otis </a> (119) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=903824">Bettiol, Renato G. </a> (105) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(973224)">Chodosh, Otis </a> (141)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(903824)">Bettiol, Renato G. </a> (119)
+<a style="text-decoration: none; font-weight:bold; color:green;" href="javascript:open_individual_view(857067)">Pardon, John </a> (118)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(884743)">Seward, Brandon </a> (116)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Applied math: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1011798">Zhou, Zhi </a> (785) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1139653">Zhao, Jia </a> (575) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=941164">Bitansky, Nir </a> (452) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1045185">Gorbunov, Sergey </a> (427) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=963853">Bandeira, Afonso S. </a> (426) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1011798)">Zhou, Zhi </a> (858)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1139653)">Zhao, Jia </a> (639)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(963853)">Bandeira, Afonso S. </a> (483)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(941164)">Bitansky, Nir </a> (479)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(965785)">Feischl, Michael </a> (453)
 </div>
 <div style="background-color:#F5F5F5;padding:5px;">
 <span style="font-style:italic;"> Combinatorics: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=840121">Liu, Xiao Gang </a> (248) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1014923">Košmrlj, Gašper </a> (200) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1022010">Ning, Bo </a> (138) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1045360">Bonamy, Marthe </a> (135) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=895688">Han, Jie </a> (133) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(840121)">Liu, Xiao Gang </a> (259)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1014923)">Košmrlj, Gašper </a> (202)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(895688)">Han, Jie </a> (163)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1045360)">Bonamy, Marthe </a> (156)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1143897)">Methuku, Abhishek </a> (150)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Probability: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1096655">Jaisson, Thibault </a> (132) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=848187">Kuan, Jeffrey </a> (111) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1096655)">Jaisson, Thibault </a> (159)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1137761)">Huang, Jiaoyang </a> (123)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(848187)">Kuan, Jeffrey </a> (123)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1108355)">Lupu, Titus </a> (102)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1061889)">Sarantsev, Andrey </a> (101)
 </div>
 </div>
 <hr>
@@ -660,103 +437,112 @@
 <div style="font-weight:bold; font-size:larger;"> Year: <a style="text-decoration:none;" href="javascript:expand('2016')">2016 &#9662;</a></div>
 <div style="background-color:#F0F0FF;">
 <span style="font-weight:bold; background-color:#F2F0B6; margin:10px; border: 1px solid"> Top 5: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1078696">Kamensky, David </a> (452) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=969194">Zhuo, Ciqiang </a> (344) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=929456">Zhou, Peng </a> (299) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1083910">Lee, Yin Tat </a> (198) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=895873">Sanchez Uribe, Manuel A. </a> (188) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1078696)">Kamensky, David </a> (511)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(969194)">Zhuo, Ciqiang </a> (382)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(929456)">Zhou, Peng </a> (308)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1083910)">Lee, Yin Tat </a> (213)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(895873)">Sanchez Uribe, Manuel A. </a> (199)
 </div>
 <div style="">
 <span style="font-style:italic;"> Number theory: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1022068">Sawin, William F. </a> (109) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1157746">Zini, Giovanni </a> (103) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1022068)">Sawin, William F. </a> (127)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1157746)">Zini, Giovanni </a> (123)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1170321)">Montanucci, Maria </a> (117)
 </div>
 <div style="background-color:#F5F5F5;">
 <span style="font-style:italic;"> Algebra: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=900082">Ni, Xiang </a> (185) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=976221">Robeva, Elina Mihaylova </a> (119) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1019600">Ranganathan, Dhruv </a> (108) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(900082)">Ni, Xiang </a> (185)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1019600)">Ranganathan, Dhruv </a> (132)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(976221)">Robeva, Elina Mihaylova </a> (129)
 </div>
 <div style="">
 <span style="font-style:italic;"> Analysis: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=969194">Zhuo, Ciqiang </a> (344) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=929456">Zhou, Peng </a> (299) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1154481">Xu, Fei </a> (176) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(969194)">Zhuo, Ciqiang </a> (382)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(929456)">Zhou, Peng </a> (308)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1154481)">Xu, Fei </a> (195)
 </div>
 <div style="background-color:#F5F5F5;">
 <span style="font-style:italic;"> Geometry/topology/dynamical systems: </span>
-<span style="color:gray;">(none with more than 100 citations)</span>
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1144604)">Filip, Simion </a> (112)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1136311)">Dervan, Ruadhaí </a> (105)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(899399)">Bhattacharya, Bhaswar B. </a> (104)
 </div>
 <div style="">
 <span style="font-style:italic;"> Applied math: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1078696">Kamensky, David </a> (452) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=895873">Sanchez Uribe, Manuel A. </a> (188) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=977732">Lee, Chak Shing </a> (180) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1078696)">Kamensky, David </a> (511)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(895873)">Sanchez Uribe, Manuel A. </a> (199)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(977732)">Lee, Chak Shing </a> (197)
 </div>
 <div style="background-color:#F5F5F5;">
 <span style="font-style:italic;"> Combinatorics: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=931525">Mondal, Debajyoti </a> (121) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=942974">Sergel Leven, Emily </a> (104) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(931525)">Mondal, Debajyoti </a> (129)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(942974)">Sergel Leven, Emily </a> (107)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1128287)">Yu, Xiaowei </a> (104)
 </div>
 <div style="">
 <span style="font-style:italic;"> Probability: </span>
-<span style="color:gray;">(none with more than 100 citations)</span>
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1126717)">Junge, Matthew </a> (113)
 </div>
 </div>
 <div id="expandedyear2016" style="display:none; padding:15px; font-size:1.1em; border:2px solid blue;">
 <div style="font-weight:bold; font-size:larger;"> Year: <a style="text-decoration:none;" href="javascript:collapse('2016')">2016 &#9652;</a></div>
 <div style="background-color:#F0F0FF;padding:5px;">
 <span style="font-weight:bold; background-color:#F2F0B6; margin:10px; border: 1px solid"> Top 10: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1078696">Kamensky, David </a> (452) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=969194">Zhuo, Ciqiang </a> (344) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=929456">Zhou, Peng </a> (299) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1083910">Lee, Yin Tat </a> (198) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=895873">Sanchez Uribe, Manuel A. </a> (188) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=900082">Ni, Xiang </a> (185) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=977732">Lee, Chak Shing </a> (180) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1154481">Xu, Fei </a> (176) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1075073">Dezeure, Ruben </a> (173) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1049015">Tam, Matthew K. </a> (172) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1078696)">Kamensky, David </a> (511)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(969194)">Zhuo, Ciqiang </a> (382)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(929456)">Zhou, Peng </a> (308)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1083910)">Lee, Yin Tat </a> (213)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(895873)">Sanchez Uribe, Manuel A. </a> (199)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(977732)">Lee, Chak Shing </a> (197)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1154481)">Xu, Fei </a> (195)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1075073)">Dezeure, Ruben </a> (191)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1049015)">Tam, Matthew K. </a> (190)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(900082)">Ni, Xiang </a> (185)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Number theory: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1022068">Sawin, William F. </a> (109) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1157746">Zini, Giovanni </a> (103) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1022068)">Sawin, William F. </a> (127)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1157746)">Zini, Giovanni </a> (123)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1170321)">Montanucci, Maria </a> (117)
 </div>
 <div style="background-color:#F5F5F5;padding:5px;">
 <span style="font-style:italic;"> Algebra: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=900082">Ni, Xiang </a> (185) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=976221">Robeva, Elina Mihaylova </a> (119) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1019600">Ranganathan, Dhruv </a> (108) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(900082)">Ni, Xiang </a> (185)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1019600)">Ranganathan, Dhruv </a> (132)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(976221)">Robeva, Elina Mihaylova </a> (129)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Analysis: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=969194">Zhuo, Ciqiang </a> (344) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=929456">Zhou, Peng </a> (299) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1154481">Xu, Fei </a> (176) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1049015">Tam, Matthew K. </a> (172) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1156525">Wang, Xiu-Bin </a> (137) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(969194)">Zhuo, Ciqiang </a> (382)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(929456)">Zhou, Peng </a> (308)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1154481)">Xu, Fei </a> (195)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1049015)">Tam, Matthew K. </a> (190)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1156525)">Wang, Xiu-Bin </a> (144)
 </div>
 <div style="background-color:#F5F5F5;padding:5px;">
 <span style="font-style:italic;"> Geometry/topology/dynamical systems: </span>
-<span style="color:gray;">(none with more than 100 citations)</span>
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1144604)">Filip, Simion </a> (112)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1136311)">Dervan, Ruadhaí </a> (105)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(899399)">Bhattacharya, Bhaswar B. </a> (104)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Applied math: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1078696">Kamensky, David </a> (452) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=895873">Sanchez Uribe, Manuel A. </a> (188) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=977732">Lee, Chak Shing </a> (180) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1075073">Dezeure, Ruben </a> (173) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1051593">Tavelli, Maurizio </a> (171) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1078696)">Kamensky, David </a> (511)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(895873)">Sanchez Uribe, Manuel A. </a> (199)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(977732)">Lee, Chak Shing </a> (197)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1075073)">Dezeure, Ruben </a> (191)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1051593)">Tavelli, Maurizio </a> (185)
 </div>
 <div style="background-color:#F5F5F5;padding:5px;">
 <span style="font-style:italic;"> Combinatorics: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=931525">Mondal, Debajyoti </a> (121) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=942974">Sergel Leven, Emily </a> (104) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(931525)">Mondal, Debajyoti </a> (129)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(942974)">Sergel Leven, Emily </a> (107)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1128287)">Yu, Xiaowei </a> (104)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(929797)">Tait, Michael </a> (103)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Probability: </span>
-<span style="color:gray;">(none with more than 100 citations)</span>
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1126717)">Junge, Matthew </a> (113)
 </div>
 </div>
 <hr>
@@ -764,11 +550,11 @@
 <div style="font-weight:bold; font-size:larger;"> Year: <a style="text-decoration:none;" href="javascript:expand('2017')">2017 &#9662;</a></div>
 <div style="background-color:#F0F0FF;">
 <span style="font-weight:bold; background-color:#F2F0B6; margin:10px; border: 1px solid"> Top 5: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1005443">Leung, Wing Tat </a> (283) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=999722">Zhou, Han </a> (247) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1152952">Vasey, Sebastien </a> (240) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1046732">Tian, Xiaochuan </a> (208) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1056368">Abboud, Amir </a> (202) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1005443)">Leung, Wing Tat </a> (327)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1152952)">Vasey, Sebastien </a> (282)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(999722)">Zhou, Han </a> (264)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1046732)">Tian, Xiaochuan </a> (260)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1056368)">Abboud, Amir </a> (218)
 </div>
 <div style="">
 <span style="font-style:italic;"> Number theory: </span>
@@ -780,17 +566,18 @@
 </div>
 <div style="">
 <span style="font-style:italic;"> Analysis: </span>
-<span style="color:gray;">(none with more than 100 citations)</span>
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(951730)">Torebek, Berikbol T. </a> (136)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1034765)">Ogbuisi, Ferdinard Udochukwu </a> (108)
 </div>
 <div style="background-color:#F5F5F5;">
 <span style="font-style:italic;"> Geometry/topology/dynamical systems: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1059952">Brazitikos, Silouanos </a> (120) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1059952)">Brazitikos, Silouanos </a> (126)
 </div>
 <div style="">
 <span style="font-style:italic;"> Applied math: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1005443">Leung, Wing Tat </a> (283) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=999722">Zhou, Han </a> (247) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1046732">Tian, Xiaochuan </a> (208) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1005443)">Leung, Wing Tat </a> (327)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(999722)">Zhou, Han </a> (264)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1046732)">Tian, Xiaochuan </a> (260)
 </div>
 <div style="background-color:#F5F5F5;">
 <span style="font-style:italic;"> Combinatorics: </span>
@@ -798,22 +585,24 @@
 </div>
 <div style="">
 <span style="font-style:italic;"> Probability: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=957495">Sun, Xin </a> (102) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(957495)">Sun, Xin </a> (143)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1126713)">Hutchcroft, Tom </a> (120)
 </div>
 </div>
 <div id="expandedyear2017" style="display:none; padding:15px; font-size:1.1em; border:2px solid blue;">
 <div style="font-weight:bold; font-size:larger;"> Year: <a style="text-decoration:none;" href="javascript:collapse('2017')">2017 &#9652;</a></div>
 <div style="background-color:#F0F0FF;padding:5px;">
 <span style="font-weight:bold; background-color:#F2F0B6; margin:10px; border: 1px solid"> Top 10: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1005443">Leung, Wing Tat </a> (283) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=999722">Zhou, Han </a> (247) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1152952">Vasey, Sebastien </a> (240) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1046732">Tian, Xiaochuan </a> (208) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1056368">Abboud, Amir </a> (202) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1059952">Brazitikos, Silouanos </a> (120) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1103300">Chew, Leroy </a> (114) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=967475">Kumar, Mrinal </a> (104) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=957495">Sun, Xin </a> (102) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1005443)">Leung, Wing Tat </a> (327)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1152952)">Vasey, Sebastien </a> (282)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(999722)">Zhou, Han </a> (264)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1046732)">Tian, Xiaochuan </a> (260)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1056368)">Abboud, Amir </a> (218)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(957495)">Sun, Xin </a> (143)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(951730)">Torebek, Berikbol T. </a> (136)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1059952)">Brazitikos, Silouanos </a> (126)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1126713)">Hutchcroft, Tom </a> (120)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1103300)">Chew, Leroy </a> (116)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Number theory: </span>
@@ -825,17 +614,19 @@
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Analysis: </span>
-<span style="color:gray;">(none with more than 100 citations)</span>
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(951730)">Torebek, Berikbol T. </a> (136)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1034765)">Ogbuisi, Ferdinard Udochukwu </a> (108)
 </div>
 <div style="background-color:#F5F5F5;padding:5px;">
 <span style="font-style:italic;"> Geometry/topology/dynamical systems: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1059952">Brazitikos, Silouanos </a> (120) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1059952)">Brazitikos, Silouanos </a> (126)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Applied math: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1005443">Leung, Wing Tat </a> (283) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=999722">Zhou, Han </a> (247) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1046732">Tian, Xiaochuan </a> (208) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1005443)">Leung, Wing Tat </a> (327)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(999722)">Zhou, Han </a> (264)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1046732)">Tian, Xiaochuan </a> (260)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1126894)">Cherukuri, Ashish </a> (105)
 </div>
 <div style="background-color:#F5F5F5;padding:5px;">
 <span style="font-style:italic;"> Combinatorics: </span>
@@ -843,7 +634,8 @@
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Probability: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=957495">Sun, Xin </a> (102) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(957495)">Sun, Xin </a> (143)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1126713)">Hutchcroft, Tom </a> (120)
 </div>
 </div>
 <hr>
@@ -851,8 +643,8 @@
 <div style="font-weight:bold; font-size:larger;"> Year: <a style="text-decoration:none;" href="javascript:expand('2018')">2018 &#9662;</a></div>
 <div style="background-color:#F0F0FF;">
 <span style="font-weight:bold; background-color:#F2F0B6; margin:10px; border: 1px solid"> Top 5: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=985333">Gwynne, Ewain </a> (134) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1142896">Ko, Dongnam </a> (114) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(985333)">Gwynne, Ewain </a> (134)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1142896)">Ko, Dongnam </a> (114)
 </div>
 <div style="">
 <span style="font-style:italic;"> Number theory: </span>
@@ -880,15 +672,15 @@
 </div>
 <div style="">
 <span style="font-style:italic;"> Probability: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=985333">Gwynne, Ewain </a> (134) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(985333)">Gwynne, Ewain </a> (134)
 </div>
 </div>
 <div id="expandedyear2018" style="display:none; padding:15px; font-size:1.1em; border:2px solid blue;">
 <div style="font-weight:bold; font-size:larger;"> Year: <a style="text-decoration:none;" href="javascript:collapse('2018')">2018 &#9652;</a></div>
 <div style="background-color:#F0F0FF;padding:5px;">
 <span style="font-weight:bold; background-color:#F2F0B6; margin:10px; border: 1px solid"> Top 10: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=985333">Gwynne, Ewain </a> (134) ,
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=1142896">Ko, Dongnam </a> (114) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(985333)">Gwynne, Ewain </a> (134)
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(1142896)">Ko, Dongnam </a> (114)
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Number theory: </span>
@@ -916,9 +708,9 @@
 </div>
 <div style="padding:5px;">
 <span style="font-style:italic;"> Probability: </span>
-<a style="text-decoration: none; font-weight:bold; color:black;" href="https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid=985333">Gwynne, Ewain </a> (134) ,
+<a style="text-decoration: none; font-weight:bold; color:black;" href="javascript:open_individual_view(985333)">Gwynne, Ewain </a> (134)
 </div>
 </div>
 <hr>
-</body>
+  </body>
 </html>
