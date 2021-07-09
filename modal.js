@@ -60,7 +60,7 @@ function open_individual_view(mr){
    }
    var rg_on = document.getElementById("RG-on");
    var rg_search = document.getElementById("RG-search");
-   if (record.RG_name!=null){
+   if ((record.RG_name!=null)&&(record.RG_name!="")){
        rg_on.style.display = "block";
        rg_search.style.display = "none";
        rg_link.href = "https://www.researchgate.net/profile/"+record.RG_name;
