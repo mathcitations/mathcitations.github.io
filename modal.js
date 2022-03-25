@@ -49,8 +49,8 @@ function open_individual_view(mr){
    record = tops[mr];
    h2.innerHTML = record.name;
    msn_link.href = "https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid="+record.mr.toString();
-   // msn_citations.innerHTML = record.citations.toString();
-   // msn_publications.innerHTML = record.publications.toString();
+   msn_citations.innerHTML = record.citations.toString();
+   msn_publications.innerHTML = record.publications.toString();
    if (record.scopus_id!=null){
        sc_link.href = "https://www.scopus.com/authid/detail.uri?authorId="+record.scopus_id.toString();
        if(record.scopus_citations==null) record.scopus_citations = 0;
