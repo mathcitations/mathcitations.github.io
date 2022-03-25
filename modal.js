@@ -38,10 +38,10 @@ function open_individual_view(mr){
    var gs_citations = document.getElementById("gs-citations");
    var msn_citations =  document.getElementById("msn-citations");
    var msn_publications =  document.getElementById("msn-publications");
-   var sc_citations =  document.getElementById("sc-citations");
-   var sc_publications =  document.getElementById("sc-publications");
-   var rg_citations =  document.getElementById("rg-citations");
-   var rg_publications =  document.getElementById("rg-publications");
+   //var sc_citations =  document.getElementById("sc-citations");
+   //var sc_publications =  document.getElementById("sc-publications");
+   //var rg_citations =  document.getElementById("rg-citations");
+   //var rg_publications =  document.getElementById("rg-publications");
    var phd_year =  document.getElementById("phd-year");
    var hp_view =  document.getElementById("hp-view");
    var hp_link =  document.getElementById("hp-link");
@@ -49,14 +49,14 @@ function open_individual_view(mr){
    record = tops[mr];
    h2.innerHTML = record.name;
    msn_link.href = "https://mathscinet.ams.org/mathscinet/search/author.html?mrauthid="+record.mr.toString();
-   msn_citations.innerHTML = record.citations.toString();
-   msn_publications.innerHTML = record.publications.toString();
+   // msn_citations.innerHTML = record.citations.toString();
+   // msn_publications.innerHTML = record.publications.toString();
    if (record.scopus_id!=null){
        sc_link.href = "https://www.scopus.com/authid/detail.uri?authorId="+record.scopus_id.toString();
        if(record.scopus_citations==null) record.scopus_citations = 0;
        if(record.scopus_publications==null) record.scopus_publications = 0;
-       sc_citations.innerHTML = record.scopus_citations.toString();
-       sc_publications.innerHTML = record.scopus_publications.toString();
+       //sc_citations.innerHTML = record.scopus_citations.toString();
+       //sc_publications.innerHTML = record.scopus_publications.toString();
    }
    var rg_on = document.getElementById("RG-on");
    var rg_search = document.getElementById("RG-search");
@@ -64,28 +64,28 @@ function open_individual_view(mr){
        rg_on.style.display = "block";
        rg_search.style.display = "none";
        rg_link.href = "https://www.researchgate.net/profile/"+record.RG_name;
-       rg_citations.innerHTML = record.RG_citations.toString();
-       rg_publications.innerHTML = record.RG_publications.toString();
+       //rg_citations.innerHTML = record.RG_citations.toString();
+       //rg_publications.innerHTML = record.RG_publications.toString();
    }
    else{
        rg_on.style.display = "none";
        rg_search.style.display = "block";
        rg_search.href = 'https://www.researchgate.net/search.Search.html?type=researcher&query='+record.name;
-       rg_citations.innerHTML = "-";
-       rg_publications.innerHTML = "-";
+       //rg_citations.innerHTML = "-";
+       //rg_publications.innerHTML = "-";
    }
    
    if (record.GS_id!=null){
        gs_on.style.display = "block";
        gs_search.style.display = "none";
        gs_link.href = "https://scholar.google.com/citations?user="+record.GS_id;
-       gs_citations.innerHTML = record.GS_citations.toString();
+       //gs_citations.innerHTML = record.GS_citations.toString();
    }
    else{
        gs_on.style.display = "none";
        gs_search.style.display = "block";
        gs_search.href = "https://scholar.google.com/citations?view_op=search_authors&mauthors="+record.name;
-       gs_citations.innerHTML = "-";
+       //gs_citations.innerHTML = "-";
    }
    area.innerHTML = record.area;
    
