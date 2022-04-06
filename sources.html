@@ -47,6 +47,19 @@
 <p>Please let us know if you find an error. If you have any comments, please write to citationbookkeeper@gmail.com</p>
 </div>
 
+    <div class="box">
+    <p>We can see a citation ranking directly on the MathSciNet website. However, it is not possible to group the authors by their PhD graduation year. Use the form below to see the citation ranking according to "Earliest Indexed Publication".</p>
+    <p>Access to MathSciNet requires subscription.</p>
+    </div>
+
+<div class="box" style="background-color:gray;">
+<form action="https://mathscinet.ams.org/mathscinet/search/authors.html" method="GET">
+    <label for="searchin">Earliest indexed publication</label> <input name="searchin" id="searchin" value="1970">
+    <input name="sort" value="citations" style="width:0px; visibility:hidden">
+    <input name="authorName" value="*" style="width:0px; visibility:hidden">
+    <button>See the ranking on MathSciNet</button>
+</form>
+</div>
 
   </body>
 </html>
